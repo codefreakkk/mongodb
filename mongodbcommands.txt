@@ -1,0 +1,91 @@
+// Show database 
+- show dbs
+
+// create a new database or switch to database
+- use dbname
+
+// see in which db your are working in 
+- db
+
+// delete database
+- db.dropDatabase()
+
+// -------------------collections related commands----------------
+
+// create collections 
+- db.createCollection('collectionName')
+
+// show collections
+- show collections
+
+// drop collections
+- db.table1.drop()
+
+// -------------------rows related commands----------------
+
+// Insert one row
+- db.table1.insert({'id':3,name':'harsh'})
+
+// Insert one row
+- db.table1.insertMany([{'id':1,'name':'harsh1'},{'id':2,'name':'harsh2'},{'id':3,'name':'harsh'}])
+
+// show all rows in a collections
+- db.table1.find()
+
+// search in database
+- db.table1.find({'name':'harsh'})
+
+// get specific field data (Projection)
+- db.table1.find({id:1},{name:1 or 0})
+
+// get specific field data (Projection)
+- db.table1.find({id:1},{_id:0, name:1})
+
+// limit 
+- db.table1.find().limit(2) 
+
+// count the number of rows in output
+- db.table1.find().count() 
+
+// sort the rows
+- db.table1.find().sort({'id':-1})
+
+// findOne
+- db.table1.findOne({'id':1}) 
+
+// update a row
+- db.table1.update(key,data to be updated)     
+- db.table1.update({'id':'2'},{'id':'2','name':'abc'})  
+- db.table1.update({'id':'2'},{'id':'2','name':'abc'}, {upsert:true})  
+// use this to update a row
+- db.table1.update({id:2}, {$set : {name: "changed"}})
+// use this to update all the rows
+- db.table1.updateMany({id:2}, {$set : {name: "changed"}})
+
+// change the name of the field
+- db.table1.update({'id':3},{$rename: {names:'name'}})
+
+// skip the records 
+- db.table1.find().limit(1).skip(1)
+
+// delete row
+- db.table1.remove({id:3})   
+
+// delete row
+-  db.tabl1.deleteMany({name:"changed"})  
+   
+// delete document  
+-  db.tabl1.deleteMany({})     
+
+// less than 
+-  db.table1.find({id:{$lt:2}})
+
+// less than equals
+-  db.table1.find({id:{$lte:2}})
+
+// greater than
+-  db.table1.find({id:{$gt:2}})
+
+// greater than equals
+-  db.table1.find({id:{$gte:2}})
+
